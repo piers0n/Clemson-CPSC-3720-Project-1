@@ -17,4 +17,11 @@ void matchAndSchedule(int profileIndex) {
     }
 }
 
+int findProfileIndexByID(const std::string& id) {
+    for (size_t i = 0; i < profiles.size(); ++i)
+        if (profiles[i].studentID == id) return static_cast<int>(i);
+    return -1;
+}
+
+
 // Optionally, you can call matchAndSchedule from day2.cpp after adding students

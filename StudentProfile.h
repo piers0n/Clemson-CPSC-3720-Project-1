@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <limits>
 
 class StudentProfile {
 public:
@@ -20,10 +21,10 @@ public:
 
     void displayProfile() const {
         std::cout << "Name: " << name << "\nID: " << studentID << "\nCourses: ";
-        for (const auto& course : courses) {
-            std::cout << course << " ";
-        }
-        std::cout << std::endl;
+        for (const auto& course : courses) std::cout << course << " ";
+        std::cout << "\nAvailability: ";
+        for (const auto& time : availability) std::cout << time << " ";
+        std::cout << "\n";
     }
 
     void addAvailability(const std::string& time) {
@@ -49,6 +50,12 @@ public:
         return false;
     }
 };
+
+bool saveData(const std::string& path);
+bool loadData(const std::string& path);
+void addAvailabilityToProfile(int profileIndex);
+void searchByCourse(const std::string& course);
+int findProfileIndexByID(const std::string& id);
 
 extern std::vector<StudentProfile> profiles; // Declare the profiles vector
 void addProfile(); // Declare function

@@ -1,10 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "day1projectcode.cpp" // Include Day 1 functionality
-#include "day2projectcode.cpp" // Include Day 2 functionality
-
-class StudentProfile; // Forward declaration
+#include "StudentProfile.h" // Include the header file
 
 void scheduleStudySession(int studentIndex1, int studentIndex2) {
     std::cout << profiles[studentIndex1].name << " and " << profiles[studentIndex2].name << " have scheduled a study session!" << std::endl;
@@ -21,7 +18,6 @@ void matchAndSchedule(int profileIndex) {
 }
 
 int main() {
-    // Adding profiles and availability
     StudentProfile student1;
     student1.createProfile("Alice", "123", {"CS101", "MATH201"});
     student1.addAvailability("Monday 10AM");
@@ -37,7 +33,6 @@ int main() {
     student3.addAvailability("Tuesday 2PM");
     profiles.push_back(student3);
 
-    // Match and schedule for the first profile
     matchAndSchedule(0); // Match availability for Alice
 
     return 0;

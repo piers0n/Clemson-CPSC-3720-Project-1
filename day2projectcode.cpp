@@ -1,9 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "day1projectcode.cpp" // Include Day 1 functionality
-
-class StudentProfile; // Forward declaration
+#include "StudentProfile.h" // Include the header file
 
 void addAvailabilityToProfile(int profileIndex) {
     std::string time;
@@ -19,18 +17,15 @@ void searchByCourse(const std::string& course) {
         for (const auto& c : profile.courses) {
             if (c == course) {
                 std::cout << profile.name << " - ";
-                profile.displayAvailability();  
+                profile.displayAvailability();
             }
         }
     }
 }
 
 int main() {
-    // Day 1: Adding profiles
     addProfile();
     displayAllProfiles();
-
-    // Day 2: Example usage
     addAvailabilityToProfile(0); // Add availability to the first profile
     searchByCourse("CS101"); // Example search for a course
 

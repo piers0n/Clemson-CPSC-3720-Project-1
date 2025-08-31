@@ -1,34 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include "StudentProfile.h" // Include the header file
 
-class StudentProfile {
-public:
-    std::string name;
-    std::string studentID;
-    std::vector<std::string> courses;
-
-    void createProfile(const std::string& n, const std::string& id, const std::vector<std::string>& c) {
-        name = n;
-        studentID = id;
-        courses = c;
-    }
-
-    void displayProfile() const {
-        std::cout << "Name: " << name << "\nID: " << studentID << "\nCourses: ";
-        for (const auto& course : courses) {
-            std::cout << course << " ";
-        }
-        std::cout << std::endl;
-    }
-
-    void updateProfile(const std::string& n, const std::vector<std::string>& c) {
-        name = n;
-        courses = c;
-    }
-};
-
-std::vector<StudentProfile> profiles;
+std::vector<StudentProfile> profiles; // Define the profiles vector
 
 void addProfile() {
     StudentProfile newProfile;
@@ -42,7 +17,7 @@ void addProfile() {
 
     std::cout << "Enter number of courses: ";
     std::cin >> courseCount;
-    std::cin.ignore(); // Clear newline character from input buffer
+    std::cin.ignore();
 
     std::vector<std::string> courses(courseCount);
     for (int i = 0; i < courseCount; ++i) {

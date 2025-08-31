@@ -1,34 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include "day1projectcode.cpp" // Include Day 1 functionality
 
-class StudentProfile {
-public:
-    std::string name;
-    std::string studentID;
-    std::vector<std::string> courses;
-    std::vector<std::string> availability;
-
-    void createProfile(const std::string& n, const std::string& id, const std::vector<std::string>& c) {
-        name = n;
-        studentID = id;
-        courses = c;
-    }
-
-    void addAvailability(const std::string& time) {
-        availability.push_back(time);
-    }
-
-    void displayAvailability() const {  // Marked as const
-        std::cout << "Availability: ";
-        for (const auto& time : availability) {
-            std::cout << time << " ";
-        }
-        std::cout << std::endl;
-    }
-};
-
-std::vector<StudentProfile> profiles;
+class StudentProfile; // Forward declaration
 
 void addAvailabilityToProfile(int profileIndex) {
     std::string time;
@@ -44,19 +19,20 @@ void searchByCourse(const std::string& course) {
         for (const auto& c : profile.courses) {
             if (c == course) {
                 std::cout << profile.name << " - ";
-                profile.displayAvailability();  // Now works with const
+                profile.displayAvailability();  
             }
         }
     }
 }
 
 int main() {
-    // Assume profiles have already been added
-    StudentProfile student1;
-    student1.createProfile("Alice", "123", {"CS101", "MATH201"});
-    profiles.push_back(student1);
-    
-    addAvailabilityToProfile(0); // Example: Adding availability to the first profile
-    searchByCourse("CS101"); // Example: Search for students in CS101
+    // Day 1: Adding profiles
+    addProfile();
+    displayAllProfiles();
+
+    // Day 2: Example usage
+    addAvailabilityToProfile(0); // Add availability to the first profile
+    searchByCourse("CS101"); // Example search for a course
+
     return 0;
 }

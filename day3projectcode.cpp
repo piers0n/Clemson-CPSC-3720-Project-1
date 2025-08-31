@@ -1,45 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include "day1projectcode.cpp" // Include Day 1 functionality
+#include "day2projectcode.cpp" // Include Day 2 functionality
 
-class StudentProfile {
-public:
-    std::string name;
-    std::string studentID;
-    std::vector<std::string> courses;
-    std::vector<std::string> availability;
-
-    void createProfile(const std::string& n, const std::string& id, const std::vector<std::string>& c) {
-        name = n;
-        studentID = id;
-        courses = c;
-    }
-
-    void addAvailability(const std::string& time) {
-        availability.push_back(time);
-    }
-
-    bool hasOverlap(const std::vector<std::string>& otherAvailability) const {
-        for (const auto& time : availability) {
-            for (const auto& otherTime : otherAvailability) {
-                if (time == otherTime) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    void displayAvailability() const {
-        std::cout << "Availability: ";
-        for (const auto& time : availability) {
-            std::cout << time << " ";
-        }
-        std::cout << std::endl;
-    }
-};
-
-std::vector<StudentProfile> profiles;
+class StudentProfile; // Forward declaration
 
 void scheduleStudySession(int studentIndex1, int studentIndex2) {
     std::cout << profiles[studentIndex1].name << " and " << profiles[studentIndex2].name << " have scheduled a study session!" << std::endl;
@@ -50,7 +15,6 @@ void matchAndSchedule(int profileIndex) {
     for (size_t i = 0; i < profiles.size(); ++i) {
         if (i != profileIndex && profiles[profileIndex].hasOverlap(profiles[i].availability)) {
             std::cout << profiles[i].name << " is available to study.\n";
-            // Schedule session
             scheduleStudySession(profileIndex, i);
         }
     }

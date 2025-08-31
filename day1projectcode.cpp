@@ -14,7 +14,7 @@ public:
         courses = c;
     }
 
-    void displayProfile() const {  // Marked as const
+    void displayProfile() const {
         std::cout << "Name: " << name << "\nID: " << studentID << "\nCourses: ";
         for (const auto& course : courses) {
             std::cout << course << " ";
@@ -59,10 +59,4 @@ void displayAllProfiles() {
     for (const auto& profile : profiles) {
         profile.displayProfile();
     }
-}
-
-int main() {
-    addProfile();
-    displayAllProfiles();
-    return 0;
 }

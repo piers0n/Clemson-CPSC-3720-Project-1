@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <unordered_map>
 
 class StudentProfile {
 public:
@@ -20,7 +19,7 @@ public:
         availability.push_back(time);
     }
 
-    void displayAvailability() {
+    void displayAvailability() const {  // Marked as const
         std::cout << "Availability: ";
         for (const auto& time : availability) {
             std::cout << time << " ";
@@ -45,7 +44,7 @@ void searchByCourse(const std::string& course) {
         for (const auto& c : profile.courses) {
             if (c == course) {
                 std::cout << profile.name << " - ";
-                profile.displayAvailability();
+                profile.displayAvailability();  // Now works with const
             }
         }
     }
@@ -53,6 +52,10 @@ void searchByCourse(const std::string& course) {
 
 int main() {
     // Assume profiles have already been added
+    StudentProfile student1;
+    student1.createProfile("Alice", "123", {"CS101", "MATH201"});
+    profiles.push_back(student1);
+    
     addAvailabilityToProfile(0); // Example: Adding availability to the first profile
     searchByCourse("CS101"); // Example: Search for students in CS101
     return 0;

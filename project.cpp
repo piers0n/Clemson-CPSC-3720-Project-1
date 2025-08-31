@@ -14,7 +14,7 @@ public:
         courses = c;
     }
 
-    void displayProfile() {
+    void displayProfile() const {  // Marked as const
         std::cout << "Name: " << name << "\nID: " << studentID << "\nCourses: ";
         for (const auto& course : courses) {
             std::cout << course << " ";

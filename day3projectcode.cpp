@@ -17,23 +17,4 @@ void matchAndSchedule(int profileIndex) {
     }
 }
 
-int main() {
-    StudentProfile student1;
-    student1.createProfile("Alice", "123", {"CS101", "MATH201"});
-    student1.addAvailability("Monday 10AM");
-    profiles.push_back(student1);
-
-    StudentProfile student2;
-    student2.createProfile("Bob", "456", {"CS101", "MATH201"});
-    student2.addAvailability("Monday 10AM");
-    profiles.push_back(student2);
-
-    StudentProfile student3;
-    student3.createProfile("Charlie", "789", {"CS102"});
-    student3.addAvailability("Tuesday 2PM");
-    profiles.push_back(student3);
-
-    matchAndSchedule(0); // Match availability for Alice
-
-    return 0;
-}
+// Optionally, you can call matchAndSchedule from day2.cpp after adding students

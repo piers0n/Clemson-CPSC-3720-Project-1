@@ -51,5 +51,7 @@ public:
 };
 
 extern std::vector<StudentProfile> profiles; // Declare the profiles vector
+void addProfile(); // Declare function
+void displayAllProfiles(); // Declare function
 
 #endif // STUDENTPROFILE_H
